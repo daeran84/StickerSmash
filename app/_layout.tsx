@@ -1,24 +1,25 @@
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { LogBox } from "react-native";
+
+LogBox.ignoreAllLogs(true);
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
+    <>
+      <StatusBar style="light"/>
+      <Stack>
+        <Stack.Screen 
+          name="(tabs)"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="+not-found"
         options={{
-          headerTitle: "Sticker Smash",
-        }}
-      />
-      <Stack.Screen name="about"
-      options={{
-        headerTitle: "About",
-      }}/>
-      <Stack.Screen name="Not Found"
-      options={{
-        headerTitle: "Not Found",
-        headerLeft: () => <></>,
-      }}/>
-    </Stack>
-    );
+        }}/>
+      </Stack>
+    </>
+  );  
 }
